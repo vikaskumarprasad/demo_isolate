@@ -115,9 +115,29 @@ showCustomDialog1({required BuildContext context}) {
                       bottomLeft: Radius.circular(20),
                     ),
                   ),
-                  child: const Column(
+                  child: Column(
                     children: [
-                      Text("data"),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height / 2.03,
+                        child: ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: 50,
+                          itemBuilder: (context, index) {
+                            return Container(
+                              height: 50,
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  16, 16, 16, 16),
+                              margin: const EdgeInsetsDirectional.fromSTEB(
+                                  5, 5, 5, 5),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(18),
+                                color: const Color(0xFFE2CAF4),
+                              ),
+                              child: Text("Title${index}"),
+                            );
+                          },
+                        ),
+                      ),
                     ],
                   ),
                 ),
