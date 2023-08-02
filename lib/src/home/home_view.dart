@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../lib/exhibition_bottom_sheet.dart';
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -17,7 +19,7 @@ class _HomeState extends State<Home> {
       fontWeight: FontWeight.bold,
     );
     return Scaffold(
-      backgroundColor: const Color(0xFFF6871F),
+      // backgroundColor: const Color(0xFFF6871F),
       appBar: AppBar(
         actions: [
           Padding(
@@ -42,20 +44,32 @@ class _HomeState extends State<Home> {
           style: testStyle,
         ),
       ),
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20),
+      body: Stack(
+        children: <Widget>[
+          SafeArea(
+            child: Column(
+              children: [],
+            ),
           ),
-        ),
-        child: const Column(
-          children: [],
-        ),
+          ExhibitionBottomSheet(), //use this or ScrollableExhibitionSheet
+        ],
       ),
+      // body: Container(
+      //   height: MediaQuery.of(context).size.height,
+      //   width: MediaQuery.of(context).size.width,
+      //   decoration: const BoxDecoration(
+      //     color: Colors.white,
+      //     borderRadius: BorderRadius.only(
+      //       topLeft: Radius.circular(20),
+      //       topRight: Radius.circular(20),
+      //     ),
+      //   ),
+      //   child: Column(
+      //     children: [
+      //       // ExhibitionBottomSheet(),
+      //     ],
+      //   ),
+      // ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet<void>(
